@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+.env*
+!*.example
+# 本地 UI 规格 / 设计截图草稿（不进版本控制）
+.agent_tmp/
+.ui-spec-digest.md
+.pytest_cache/

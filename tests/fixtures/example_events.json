@@ -1,0 +1,68 @@
+{
+  "events": [
+    {
+      "key": "watch",
+      "title": "⭐ hancic star 了 bluebird",
+      "body": "bluebird 被 hancic star，共 128 星",
+      "meta": {"event": "watch", "repo": "bluebird", "actor": "hancic",
+               "url": "https://github.com/hancic/bluebird"}
+    },
+    {
+      "key": "fork",
+      "title": "🍴 someone fork 了 bluebird",
+      "body": "someone fork 了 bluebird",
+      "meta": {"event": "fork", "repo": "bluebird", "actor": "someone",
+               "url": "https://github.com/someone/bluebird"}
+    },
+    {
+      "key": "issues",
+      "title": "🐛 新 issue #42：找不到恢复按钮",
+      "body": "alice 在 bluebird 提了 issue #42",
+      "meta": {"event": "issues", "repo": "bluebird", "actor": "alice",
+               "labels": "bug, ui",
+               "url": "https://github.com/hancic/bluebird/issues/42"}
+    },
+    {
+      "key": "issue_comment",
+      "title": "💬 bob 评论了 issue #42",
+      "body": "bluebird 的 issue #42 有新评论",
+      "meta": {"event": "issue_comment", "repo": "bluebird", "actor": "bob",
+               "comment": "我看不到那个按钮，能截个图吗？",
+               "url": "https://github.com/hancic/bluebird/issues/42#issuecomment-1"}
+    },
+    {
+      "key": "pull_request",
+      "title": "🔀 新 PR #7：支持企业微信",
+      "body": "carol 向 bluebird 提交了 PR #7",
+      "meta": {"event": "pull_request", "repo": "bluebird", "actor": "carol",
+               "branch": "feat/wecom", "commit": "abcdef0",
+               "labels": "enhancement",
+               "url": "https://github.com/hancic/bluebird/pull/7"}
+    },
+    {
+      "key": "workflow_run_pass",
+      "title": "✅ CI 通过：build",
+      "body": "bluebird · main · push event from dave",
+      "meta": {"event": "workflow_run", "repo": "bluebird", "branch": "main",
+               "actor": "dave", "commit": "1234567", "wf_status": "通过",
+               "color": "green",
+               "url": "https://github.com/hancic/bluebird/actions/runs/1"}
+    },
+    {
+      "key": "workflow_run_fail",
+      "title": "❌ CI 失败：test",
+      "body": "bluebird · main · broken test",
+      "meta": {"event": "workflow_run", "repo": "bluebird", "branch": "main",
+               "actor": "dave", "commit": "2345678", "wf_status": "失败",
+               "color": "red",
+               "url": "https://github.com/hancic/bluebird/actions/runs/2"}
+    },
+    {
+      "key": "release",
+      "title": "🚀 新发布：v0.0.11",
+      "body": "bluebird 发布了 v0.0.11",
+      "meta": {"event": "release", "repo": "bluebird", "actor": "hancic",
+               "url": "https://github.com/hancic/bluebird/releases/tag/v0.0.11"}
+    }
+  ]
+}

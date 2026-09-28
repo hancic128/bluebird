@@ -1,0 +1,31 @@
+# 青鸟 Bluebird 持续集成
+#
+#   触发：push 到 main / 任意 PR / workflow_dispatch
+#   - 语法检查 + 单元测试（与 release pipeline 共享同一组测试）
+#   - 构建镜像（不推送）作为 Dockerfile 健全性检查
+#
+# 完整构建 + 推 ghcr + 生成 Release 见 .github/workflows/release.yml（仅 v* tag 触发）。
+
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: 语法检查
+        run: python3 -m py_compile server.py
+      - name: 单元测试
+        run: python3 -m unittest discover -s tests -v
+      - name: 构建镜像（不推送，验证 Dockerfile 可编译）
+        run: docker build -t bluebird:test .

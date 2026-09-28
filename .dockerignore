@@ -1,0 +1,15 @@
+# 构建上下文排除：敏感配置与本地产物不进镜像
+.env
+.env.*
+.env.bak-*
+.git
+.github
+.gitignore
+.dockerignore
+__pycache__/
+*.pyc
+# 只放行面板「示例事件推送」用的预置 payload（server.py 在 /app/fixtures 下读它）
+tests/*
+!tests/fixtures
+!tests/fixtures/example_events.json
+README.md

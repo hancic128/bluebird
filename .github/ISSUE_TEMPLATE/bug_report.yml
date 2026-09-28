@@ -1,0 +1,97 @@
+name: 🐛 Bug 报告
+description: 报告一个可复现的问题；非安全漏洞
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        谢谢你的反馈！请尽量提供 **最小可复现示例**——这能让我们快速定位并修复。
+        如果是**安全漏洞**，请走 [Security Advisories](https://github.com/hancic128/bluebird/security/advisories/new) 私下报告，不要公开。
+
+  - type: textarea
+    id: what
+    attributes:
+      label: 发生了什么
+      description: 简述 bug 的现象与你的预期
+      placeholder: |
+        例如：「star 事件正常推送，但 fork 事件推了两遍」
+        期望：每条事件只推一次
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: 复现步骤
+      description: 一步步列出触发过程
+      placeholder: |
+        1. 在面板新建 GitHub 来源
+        2. 勾选 fork / watch 事件
+        3. 触发 fork …
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 关键日志 / 错误信息
+      description: |
+        粘贴相关日志或 HTTP 响应。**请先脱敏**：去掉 webhook secret / token / 真实邮箱 / 真实 chat_id 等。
+        可用 Markdown 代码块；json / md 自动高亮。
+      placeholder: |
+        ```
+        2026-09-22 10:00:00 ERROR ...
+        ```
+    validations:
+      required: false
+
+  - type: input
+    id: version
+    attributes:
+      label: 版本
+      description: 面板顶栏显示的版本徽章；也可以用 `docker inspect` 看镜像 tag
+      placeholder: v0.3.1
+    validations:
+      required: true
+
+  - type: dropdown
+    id: deploy
+    attributes:
+      label: 部署方式
+    options:
+      - label: Docker Compose（自建）
+        value: docker-compose
+      - label: docker run（自建）
+        value: docker-run
+      - label: Render
+        value: render
+      - label: Zeabur / Railway
+        value: paas
+      - label: Kubernetes / 其他
+        value: 其他
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: 浏览器（仅 UI 类 bug）
+      placeholder: Chrome 138 / macOS 14
+    validations:
+      required: false
+
+  - type: textarea
+    id: env
+    attributes:
+      label: 相关配置（已脱敏）
+      description: 勾选的事件类型、渠道类型、反代（Nginx / Caddy / Cloudflare）等
+    validations:
+      required: false
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 其他补充
+      placeholder: 截图 / 录屏 / 关联 issue
+    validations:
+      required: false

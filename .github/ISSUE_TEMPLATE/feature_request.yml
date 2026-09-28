@@ -1,0 +1,67 @@
+name: ✨ 功能请求
+description: 提议一个新功能 / 渠道 / 信息源
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        提需求前请先想清楚：这个需求是**多数自托管用户**的需要还是**少数人定制**？
+        少数定制请考虑 fork。Bluebird 会刻意保持**单文件、零依赖、镜像 25 MB**，范围扩张会被拒绝。
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 你想解决什么问题？
+      description: 现状让你哪里不方便；具体场景
+      placeholder: |
+        例如：「我家里 NAS 跑自托管相册，希望能在新照片上传完成时收到 Bark 推送」
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 你建议的方案
+      description: 描述期望的行为 / 配置 / UI 改动；不需要细节实现
+      placeholder: |
+        例如：「新增『文件夹监听』信息源，扫描 /photos 目录，新增文件触发 /hooks/<id>」
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 替代方案 / 已有绕路
+      description: 是否能用现有渠道或 cron + 通用 Webhook 凑合？是否已有同类项目？
+      validations:
+      required: false
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: 影响的范围
+      description: |
+        新增 webhook 端点？新增面板页签？新增配置项？引入第三方依赖？
+        任何「是」都会显著拉高维护成本，请在 PR 阶段被驳回前先讨论。
+      validations:
+      required: false
+
+  - type: dropdown
+    id: willing
+    attributes:
+      label: 是否愿意提交 PR？
+    options:
+      - label: 愿意（PR 等代码成型后讨论）
+        value: yes
+      - label: 仅提议，希望别人实现
+        value: no
+      - label: 想参与但需要先讨论
+        value: discuss
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 其他补充 / 关联
+      placeholder: 相关 issue、文档链接、截图
+    validations:
+      required: false
